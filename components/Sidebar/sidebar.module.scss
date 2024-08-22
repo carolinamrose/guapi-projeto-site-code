@@ -1,0 +1,31 @@
+.sidebar__container {
+    width: 27%;
+    height: 140vh;
+    padding: 20px 30px 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar__topcontainer {
+    display: flex;
+    justify-content: space-between;
+
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight);
+    font-size: 14px;
+    color: var(--grey-2);
+
+    border-bottom: 1px solid #E9ECEF;
+    padding: 0 0 20px;
+}
+
+.sidebar__topleft {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sidebar__topright {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

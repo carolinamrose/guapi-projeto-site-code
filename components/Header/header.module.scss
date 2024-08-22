@@ -1,0 +1,14 @@
+.header__container {
+    width: 73%;
+    padding: 20px 0 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight);
+    font-size: 14px;
+    color: var(--grey-1);
+}

@@ -1,0 +1,27 @@
+.projects__container {
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight);
+    font-size: 14px;
+    color: var(--grey-1);
+}
+
+.projects__date {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 15px 0 15px;
+}
+
+.projects__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.projects__titleleft {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
