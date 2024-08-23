@@ -1,4 +1,7 @@
+import { useState } from "react";
 import Image from "next/image";
+import ProjectModal from "../ProjectModal";
+import Modal from "../ProjectModal/Modal";
 import Styles from "./body.module.scss";
 
 import CurvyArrow from "../../public/images/CurvyArrow.png";
@@ -7,7 +10,12 @@ import Magnifier from "../../public/images/Magnifier.svg";
 import NotFound from "../../public/images/NotFound.png";
 import PlusWhite from "../../public/images/PlusWhite.svg";
 
-const Body = () => {
+const Body = ({}) => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    const openDialog = () => setIsVisible(true);
+    const closeDialog = () => setIsVisible(false);
+
     return <div className={Styles.body__container}>
         <div className={Styles.body__title}>
             <Image src={Folder} width={32} height={32}/>
@@ -22,8 +30,12 @@ const Body = () => {
                     <option value="ativos">Projetos ativos</option>
                 </select>
             </div> 
-            <button className={Styles.addproject__button} type="button">Novo Projeto <Image src={PlusWhite}/></button>  
+            <button className={Styles.addproject__button} onClick={openDialog}> Novo Projeto <Image src={PlusWhite}/></button>  
         </div>
+
+        <Modal isVisible={isVisible} onClose={closeDialog}>
+            <ProjectModal onClose={closeDialog} />
+        </Modal>
 
         <div className={Styles.body__add}>
             <span>Crie seu primeiro projeto aqui</span>
