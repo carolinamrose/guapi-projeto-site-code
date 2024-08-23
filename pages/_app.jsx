@@ -1,5 +1,12 @@
 import "../styles/globals.scss";
+import { ProjectProvider } from "@/hooks/ProjectContext";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function App({ Component, pageProps }) {
+  return (
+  <ProjectProvider>
+    <Component {...pageProps} />
+  </ProjectProvider>
+  );
 }
+
+export default App;

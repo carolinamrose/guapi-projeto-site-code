@@ -1,4 +1,5 @@
 import Image from "next/image";
+import AddProjectForm from "../AddProjectForm";
 import Styles from "./projectModal.module.scss";
 import Folder from "../../public/images/Folder.svg";
 
@@ -12,15 +13,7 @@ const ProjectModal = ({onClose}) => {
                 </div>
                 <button onClick={onClose} className={Styles.modal__closebutton}>X</button>
             </div>
-            <div className={Styles.modal__form}>
-                <label>Nome</label>
-                <input></input>
-            </div>
-            <div className={Styles.modal__formbuttons}>
-                <button className={Styles.modal__formcancel} onClick={onClose}>Cancelar</button>
-                <button className={Styles.modal__formcreate} type="submit">Criar</button>
-            </div>
-
+            <AddProjectForm onClose={onClose} />
     </div>
 }
 

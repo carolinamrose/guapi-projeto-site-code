@@ -1,5 +1,7 @@
 import Image from "next/image";
+import ProjectList from "../ProjectList";
 import Styles from "./sidebarProjects.module.scss";
+
 import Calendar from "../../public/images/Calendar.svg";
 import Folder from "../../public/images/Folder.svg";
 import Plus from "../../public/images/Plus.svg";
@@ -17,6 +19,7 @@ const SidebarProjects = () => {
             </div>
             <Image src={Plus} />
         </div>
+        <ProjectList/>
     </div>
 }
 
