@@ -1,14 +1,29 @@
 .header__container {
-    width: 73%;
-    padding: 20px 0 0;
+    width: 100%;
+    padding: 20px 20px 0;
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    gap: 5px;
 
     font-family: var(--font-primary);
     font-weight: var(--font-primary-weight);
     font-size: 14px;
     color: var(--grey-1);
+}
+
+.header__list {
+    list-style-type: none;
+}
+
+.header__list li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }

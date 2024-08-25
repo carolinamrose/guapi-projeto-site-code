@@ -1,21 +1,29 @@
 import { useState, useContext } from "react";
+import { useRouter } from "next/router";
 import { ProjectContext } from "@/hooks/ProjectContext";
 import Styles from "./addProjectForm.module.scss";
 
 const AddProjectForm = ({onClose}) => {
     const [inputValue, setInputValue] = useState('');
     const {addProject } = useContext(ProjectContext);
+    const router = useRouter();
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
       };
 
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (inputValue.trim() !== '') {
-            addProject(inputValue);
+            const capitalizedProject = capitalizeFirstLetter(inputValue);
+            addProject(capitalizedProject);
             setInputValue('');
-            onClose();
+            onClose(); 
+            router.push(`/projects/${encodeURIComponent(capitalizedProject)}`); 
         }
     };
 

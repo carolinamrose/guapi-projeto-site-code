@@ -8,7 +8,7 @@ const ProjectModal = ({onClose}) => {
     return <div role="dialog">
             <div className={Styles.modal__header}>
                 <div className={Styles.modal__title}>
-                    <Image src={Folder} />
+                    <Image src={Folder} alt="Folder Icon"/>
                     <h2>Novo Projeto</h2>
                 </div>
                 <button onClick={onClose} className={Styles.modal__closebutton}>X</button>

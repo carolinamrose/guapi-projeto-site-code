@@ -4,14 +4,16 @@
 }
 
 .body__title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.body__title h1 {
     font-family: var(--font-primary);
     font-weight: var(--font-primary-weight);
     font-size: 32px;
     color: var(--grey-1);
-
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
 
 .body__search {

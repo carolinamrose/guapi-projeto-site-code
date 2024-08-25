@@ -2,10 +2,13 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    padding: 5px 0 5px;
 }
 
 .projects__list {
+    margin-top: 5px;
     margin-left: -2px;
     list-style-type: none;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
 }

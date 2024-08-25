@@ -1,0 +1,42 @@
+.section__container {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.section__item {
+    width: 250px;
+    background-color: rgba(124, 0, 190, 0.15);
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: #7C00BE;
+}
+
+.section__create {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.section__create span {    
+    font-family: var(--font-primary);
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--grey-1);
+    text-transform: uppercase;
+    text-align: center;
+
+    width: 160px;
+    border: 1.5px solid #444648;
+    border-radius: 5px;
+    padding: 10px;
+}
