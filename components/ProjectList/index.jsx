@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import Link from 'next/link';
 import { ProjectContext } from '@/hooks/ProjectContext';
 import Image from 'next/image';
 import Document from "../../public/images/Document.svg";
@@ -8,16 +9,16 @@ const ProjectList = ({ documentSrc = Document, bgColor ="none", titleColor = "#4
   const { projects } = useContext(ProjectContext);
 
   return (
-    <div>
-      <ul className={Styles.projects__list} style={{ background: bgColor }}> 
-        {projects.map((project, index) => (
-          <li className={Styles.projects__name} key={index} style={{ color: titleColor }}>
-            <Image src={documentSrc} alt="Document Icon"/> 
+    <ul className={Styles.projects__list}> 
+      {projects.map((project, index) => (
+        <li className={Styles.projects__name} key={index} style={{ background: bgColor, color: titleColor }}>
+          <Image src={documentSrc} alt="Document Icon"/> 
+          <Link href={`/projects/${encodeURIComponent(project)}`}>
             {project}
-          </li>
-        ))}
-      </ul>
-    </div>
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 

@@ -1,0 +1,58 @@
+.task__form {
+    width: 250px;
+    border: 1px solid #7C00BE;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.task__form input {
+    font-family: var(--font-primary);
+    color: var(--grey-1);
+    font-size: 14px;
+    width: 100%;
+    margin: 5px 0;
+    outline: 0;
+    border: none;
+}
+
+.task__name {
+    font-weight: 600;
+}
+
+.task__formbottom {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.task__formbottom button {
+    background-color: #7C00BE;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight);
+    font-size: 12px;
+    color: #FFF;
+}
+
+.task__formbottom span {
+    font-family: var(--font-primary);
+    font-weight: var(--font-primary-weight);
+    font-size: 12px;
+    color: var(--grey-3);
+    cursor: pointer;
+}
+
+.section__icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+}
