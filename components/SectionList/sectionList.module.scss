@@ -1,12 +1,20 @@
 .section__container {
     display: flex;
+    flex-direction: column; /* Alinha itens verticalmente */
     align-items: flex-start;
+}
+
+.section__wrapper {
+    display: flex;
+    flex-direction: row; /* Coloca seções e botões lado a lado */
+    align-items: flex-start;
+    gap: 20px; /* Espaço entre as seções e o botão de adicionar seção */
 }
 
 .section__list {
     list-style-type: none;
     width: 300px;
-    padding: 0 20px 0;
+    padding: 0;
 }
 
 .section__listcontainer {
@@ -23,13 +31,18 @@
     color: var(--grey-1);
 }
 
+.section__itemwrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre o botão de adicionar tarefa e seção */
+}
+
 .section__item {
     width: 200px;
     background-color: rgba(124, 0, 190, 0.15);
     border-radius: 4px;
-    padding: 8px 10px 8px;
+    padding: 8px 10px;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     gap: 5px;
@@ -50,9 +63,7 @@
     border: none;
     border-radius: 4px;
     padding: 10px;
-    margin-top: 15px;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     gap: 5px;
@@ -69,7 +80,6 @@
     padding: 10px;
     border-radius: 4px;
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.25);
-
     font-family: var(--font-primary);
     font-size: 14px;
     color: var(--grey-1);
@@ -94,5 +104,3 @@
     gap: 5px;
     cursor: pointer;
 }
-
-
