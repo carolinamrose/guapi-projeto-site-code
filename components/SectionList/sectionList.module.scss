@@ -1,20 +1,22 @@
 .section__container {
     display: flex;
-    flex-direction: column; /* Alinha itens verticalmente */
+    flex-direction: column;
     align-items: flex-start;
 }
 
 .section__wrapper {
     display: flex;
-    flex-direction: row; /* Coloca seções e botões lado a lado */
+    flex-direction: row;
     align-items: flex-start;
-    gap: 20px; /* Espaço entre as seções e o botão de adicionar seção */
+    gap: 20px; 
 }
 
 .section__list {
     list-style-type: none;
     width: 300px;
     padding: 0;
+    display: flex;
+    align-items: flex-start;
 }
 
 .section__listcontainer {
@@ -33,6 +35,7 @@
 
 .section__itemwrapper {
     display: flex;
+    align-items: flex-start;
     gap: 15px; 
 }
 
