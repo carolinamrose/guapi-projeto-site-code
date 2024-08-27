@@ -4,6 +4,7 @@ import Styles from "./styles.module.scss";
 import Header from '@/components/Header';
 import Sidebar from "@/components/Sidebar";
 import PageIndex from '@/components/PageIndex';
+import SectionList from '@/components/SectionList'; 
 
 import FolderPurple from "../../public/images/FolderPurple.svg";
 import DocumentPurple from "../../public/images/DocumentPurple.svg";
@@ -21,15 +22,16 @@ const ProjectPage = () => {
         <div>
             <div className={estilos.container}>
                 <Sidebar
-                folderSrc={FolderPurple} 
-                plusSrc={PlusPurple}
-                documentSrc={DocumentPurple} 
-                titleColor="#7C00BE"
-                bgColor="rgba(124, 0, 190, 0.15)"
-                listColor="rgba(124, 0, 190, 0.15)" 
+                    folderSrc={FolderPurple} 
+                    plusSrc={PlusPurple}
+                    documentSrc={DocumentPurple} 
+                    titleColor="#7C00BE"
+                    bgColor="rgba(124, 0, 190, 0.15)"
+                    listColor="rgba(124, 0, 190, 0.15)" 
                 /> 
                 <div className={Styles.main__container}>
                     <Header title={`Projeto: ${name}`} links={headerLinks} /> 
+                    <SectionList /> 
                     <PageIndex/>
                 </div>
             </div>
