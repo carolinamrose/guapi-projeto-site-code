@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Frame from "../../public/images/Frame.svg";
 import CurvyArrow2 from "../../public/images/CurvyArrow2.png";
 import Styles from "./addSection.module.scss";
 import SectionList from "../SectionList";
+import { useRouter } from 'next/router';
 
 const AddSection = () => {
     const [isFormVisible, setFormVisible] = useState(false);
     const [sections, setSections] = useState([]);
     const [inputValue, setInputValue] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const router = useRouter();
+    const { pathname } = router;
+
+    useEffect(() => {
+        const savedSections = JSON.parse(localStorage.getItem(pathname)) || [];
+        setSections(savedSections);
+    }, [pathname]);
+
+    useEffect(() => {
+        localStorage.setItem(pathname, JSON.stringify(sections));
+    }, [sections, pathname]);
+
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
 
     const handleAddSectionClick = () => {
         setFormVisible(true);
@@ -17,10 +33,12 @@ const AddSection = () => {
 
     const handleCancelClick = () => {
         setFormVisible(false);
+        setInputValue("");
     };
 
     const handleInputChange = (e) => {
-        setInputValue(e.target.value);
+        const capitalizedInput = capitalizeFirstLetter(e.target.value);
+        setInputValue(capitalizedInput);
     };
 
     const handleFormSubmit = (e) => {

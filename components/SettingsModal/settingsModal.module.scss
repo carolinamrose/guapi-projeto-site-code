@@ -1,0 +1,223 @@
+.modal__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(217, 217, 217, 0.05);
+    backdrop-filter: blur(5px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal__content {
+    background: #FFF;
+    width: 800px;
+    height: 70vh;
+    max-width: 100%;
+    margin-left: 300px;
+    padding: 20px 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #E9ECEF;
+}
+
+.modal__headerlist {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    list-style-type: none;
+
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal__headerlist li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.modal__icons {
+    display: flex;
+    align-items: center;
+}
+
+.modal__close {
+    color: var(--grey-1);
+    font-size: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal__subcontainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.modal__left {
+  width: 70%;
+}
+
+.task__details {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: var(--grey-1);
+
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E9ECEF;
+} 
+
+.task__details textarea {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--grey-1);
+
+    width: 100%;
+    border: 2px solid #7C00BE;
+    border-radius: 4px;
+    padding: 10px;
+    outline: 0;
+}
+
+.task__name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+
+.task__description {
+    padding: 5px 0 5px;
+    font-weight: 400;
+}
+
+
+.task__addsubtask {
+    background-color: #FFF;
+    width: 250px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.task__addsubtask span {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 500;
+    color: #7C00BE;
+}
+
+.task__footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.task__footer input {
+    width: 300px;
+    border: 1px solid #E9ECEF;
+    padding: 10px 10px;
+    border-radius: 10px;
+    outline: 0;
+
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: var(--font-primary-weight);
+    color: var(--grey-2);
+}
+
+.modal__right {
+    width: 30%;
+    margin-top: 15px;
+    color: var(--grey-1);
+}
+
+.modal__right h3 {
+    font-family: var(--font-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal__rightlist {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 600;
+    list-style-type: none;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E9ECEF;
+
+    display: flex;
+    gap: 15px;
+}
+
+.modal__rightlist li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.modal__actions {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 600;
+    list-style-type: none;
+}
+
+.modal__actions li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E9ECEF;
+    cursor: pointer;
+}
+
+.task__editbuttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.task__editbuttons button {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel__button {
+    background-color: transparent;
+    color: var(--grey-3);
+}
+
+.save__button {
+    background-color: #7C00BE;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 4px;
+}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 import AddPlus from "../../public/images/AddPlus.svg";
@@ -9,6 +9,7 @@ import Frame from "../../public/images/Frame.svg";
 import TagSquare from "../../public/images/TagSquare.svg";
 import ThreeDots from "../../public/images/ThreeDots.svg";
 
+import SettingsModal from "../SettingsModal"; 
 import TaskForm from "../TaskForm";
 import Styles from "./sectionList.module.scss";
 
@@ -16,14 +17,25 @@ const SectionList = ({ sections }) => {
     const [isTaskFormVisible, setTaskFormVisible] = useState(false);
     const [tasks, setTasks] = useState([]);
     const [isTaskAdded, setIsTaskAdded] = useState(false);
-    const [isSectionAddVisible, setSectionAddVisible] = useState(false); 
+    const [isModalVisible, setModalVisible] = useState(false);
+    const [selectedSection, setSelectedSection] = useState(""); 
+    const [selectedTaskId, setSelectedTaskId] = useState(null);
+
+    useEffect(() => {
+        // Load tasks from localStorage
+        const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        setTasks(storedTasks);
+    }, []);
+
     const handleAddTaskClick = () => {
         setTaskFormVisible(true);
-        setSectionAddVisible(false); 
     };
 
     const handleTaskFormSubmit = (name, description) => {
-        setTasks([...tasks, { name, description }]);
+        const newTask = { name, description };
+        const updatedTasks = [...tasks, newTask];
+        setTasks(updatedTasks);
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks)); 
         setTaskFormVisible(false);
         setIsTaskAdded(true);
     };
@@ -31,10 +43,25 @@ const SectionList = ({ sections }) => {
     const handleCancelTaskClick = () => {
         setTaskFormVisible(false);
         setIsTaskAdded(false);
-        setSectionAddVisible(true); 
     };
 
     const handleAddSectionClick = () => {
+    };
+
+    const handleMenuIconClick = (section, task, index) => {
+        setSelectedSection(section);
+        setSelectedTaskId(index); 
+        setModalVisible(true);  
+    };
+
+    const closeModal = (updatedTask) => {
+        if (updatedTask) {
+            const updatedTasks = [...tasks];
+            updatedTasks[selectedTaskId] = updatedTask;
+            setTasks(updatedTasks);
+            localStorage.setItem("tasks", JSON.stringify(updatedTasks)); 
+        }
+        setModalVisible(false);
     };
 
     const showSectionAddButton = sections.length > 0;
@@ -46,7 +73,11 @@ const SectionList = ({ sections }) => {
                     <li key={index} className={Styles.section__listcontainer}>
                         <div></div>
                         {section}
-                        <Image src={ThreeDots} alt="Menu Icon" />
+                        <Image 
+                            src={ThreeDots} 
+                            alt="Menu Icon" 
+                            onClick={() => handleMenuIconClick(section, tasks[index] || {}, index)}
+                        />
                     </li>
                 ))}
                 {tasks.map((task, index) => (
@@ -88,6 +119,16 @@ const SectionList = ({ sections }) => {
                     <Image src={Frame} alt="Frame Icon" />
                     <span type="button" onClick={handleAddSectionClick}>Adicionar Seção</span>
                 </div>
+            )}
+
+            {isModalVisible && (
+                <SettingsModal 
+                    section={selectedSection} 
+                    taskId={selectedTaskId}
+                    taskName={tasks[selectedTaskId]?.name || ""} 
+                    taskDescription={tasks[selectedTaskId]?.description || ""} 
+                    onClose={closeModal} 
+                />  
             )}
         </div>
     );
