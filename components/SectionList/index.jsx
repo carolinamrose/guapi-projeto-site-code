@@ -22,7 +22,6 @@ const SectionList = ({ sections }) => {
     const [selectedTaskId, setSelectedTaskId] = useState(null);
 
     useEffect(() => {
-        // Load tasks from localStorage
         const storedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
         setTasks(storedTasks);
     }, []);
@@ -78,22 +77,24 @@ const SectionList = ({ sections }) => {
                             alt="Menu Icon" 
                             onClick={() => handleMenuIconClick(section, tasks[index] || {}, index)}
                         />
-                    </li>
-                ))}
-                {tasks.map((task, index) => (
-                    <li key={index} className={Styles.section__content}>
-                        <div className={Styles.section__name}>
-                            <Image src={Bullet} alt="Bullet Icon" /> 
-                            {task.name}
-                        </div>
-                        <div className={Styles.section__description}>
-                            {task.description}
-                        </div>
-                        <div className={Styles.section__icons}>
-                            <Image src={CalendarSquare} alt="Calendar Icon" />
-                            <Image src={FlagSquare} alt="Flag Icon" />
-                            <Image src={TagSquare} alt="Tag Icon" />
-                        </div>
+                        {tasks[index] && (
+                            <ul className={Styles.section__tasks}>
+                                <li className={Styles.section__content}>
+                                    <div className={Styles.section__name}>
+                                        <Image src={Bullet} alt="Bullet Icon" /> 
+                                        {tasks[index].name}
+                                    </div>
+                                    <div className={Styles.section__description}>
+                                        {tasks[index].description}
+                                    </div>
+                                    <div className={Styles.section__icons}>
+                                        <Image src={CalendarSquare} alt="Calendar Icon" />
+                                        <Image src={FlagSquare} alt="Flag Icon" />
+                                        <Image src={TagSquare} alt="Tag Icon" />
+                                    </div>
+                                </li>
+                            </ul>
+                        )}
                     </li>
                 ))}
                 {sections.length > 0 && !isTaskAdded && (

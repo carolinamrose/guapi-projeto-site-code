@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Image from "next/image";
 import ProjectModal from "../ProjectModal";
 import Modal from "../ProjectModal/Modal";
 import Styles from "./body.module.scss";
 
-import CurvyArrow from "../../public/images/CurvyArrow.png";
 import Folder from "../../public/images/Folder.svg";
 import Magnifier from "../../public/images/Magnifier.svg";
 import NotFound from "../../public/images/NotFound.png";
 import PlusWhite from "../../public/images/PlusWhite.svg";
 
-const Body = ({}) => {
+import { ProjectContext } from "@/hooks/ProjectContext";
+
+const Body = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const { projects } = useContext(ProjectContext);
 
     const openDialog = () => setIsVisible(true);
     const closeDialog = () => setIsVisible(false);
@@ -38,16 +40,20 @@ const Body = ({}) => {
                 <ProjectModal onClose={closeDialog} />
             </Modal>
 
-            <div className={Styles.body__add}>
-                <span>Crie seu primeiro projeto aqui</span>
-                <Image src={CurvyArrow}/>
-            </div>     
-
-            <div className={Styles.body__notfound}>
-                Parece que ainda não há nenhum projeto criado
-
-                <Image src={NotFound} width={400} height={400} alt="Nenhum projeto encontrado"/>
-            </div>
+            {projects.length > 0 ? (
+                <div className={Styles.body__projects}>
+                    {projects.map((project, index) => (
+                        <div key={index} className={Styles.project__item}>
+                            <span>{project}</span>
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className={Styles.body__notfound}>
+                    Parece que ainda não há nenhum projeto criado
+                    <Image src={NotFound} width={400} height={400} alt="Nenhum projeto encontrado"/>
+                </div>
+            )}
         </main>
     );
 };
