@@ -112,3 +112,15 @@
     flex-direction: column;
     align-items: center;
 }
+
+.project__item {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--grey-1);
+    padding: 15px 0 0px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

@@ -45,6 +45,7 @@ const SectionList = ({ sections }) => {
     };
 
     const handleAddSectionClick = () => {
+        // Função para adicionar uma nova seção
     };
 
     const handleMenuIconClick = (section, task, index) => {
@@ -63,7 +64,10 @@ const SectionList = ({ sections }) => {
         setModalVisible(false);
     };
 
-    const showSectionAddButton = sections.length > 0;
+    // Verificar se há alguma seção com tarefas associadas
+    const hasSectionWithTasks = sections.length > 0 && tasks.length > 0;
+
+    const showSectionAddButton = sections.length > 0 && !hasSectionWithTasks;
 
     return (
         <div className={Styles.section__container}>
@@ -77,27 +81,25 @@ const SectionList = ({ sections }) => {
                             alt="Menu Icon" 
                             onClick={() => handleMenuIconClick(section, tasks[index] || {}, index)}
                         />
-                        {tasks[index] && (
-                            <ul className={Styles.section__tasks}>
-                                <li className={Styles.section__content}>
-                                    <div className={Styles.section__name}>
-                                        <Image src={Bullet} alt="Bullet Icon" /> 
-                                        {tasks[index].name}
-                                    </div>
-                                    <div className={Styles.section__description}>
-                                        {tasks[index].description}
-                                    </div>
-                                    <div className={Styles.section__icons}>
-                                        <Image src={CalendarSquare} alt="Calendar Icon" />
-                                        <Image src={FlagSquare} alt="Flag Icon" />
-                                        <Image src={TagSquare} alt="Tag Icon" />
-                                    </div>
-                                </li>
-                            </ul>
-                        )}
                     </li>
                 ))}
-                {sections.length > 0 && !isTaskAdded && (
+                {tasks.map((task, index) => (
+                    <li key={index} className={Styles.section__content}>
+                        <div className={Styles.section__name}>
+                            <Image src={Bullet} alt="Bullet Icon" /> 
+                            {task.name}
+                        </div>
+                        <div className={Styles.section__description}>
+                            {task.description}
+                        </div>
+                        <div className={Styles.section__icons}>
+                            <Image src={CalendarSquare} alt="Calendar Icon" />
+                            <Image src={FlagSquare} alt="Flag Icon" />
+                            <Image src={TagSquare} alt="Tag Icon" />
+                        </div>
+                    </li>
+                ))}
+                {showSectionAddButton && (
                     isTaskFormVisible ? (
                         <TaskForm 
                             onSubmit={handleTaskFormSubmit} 

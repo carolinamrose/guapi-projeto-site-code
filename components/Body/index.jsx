@@ -1,9 +1,11 @@
 import { useState, useContext } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import ProjectModal from "../ProjectModal";
 import Modal from "../ProjectModal/Modal";
 import Styles from "./body.module.scss";
 
+import Bullet from "../../public/images/Bullet.svg";
 import Folder from "../../public/images/Folder.svg";
 import Magnifier from "../../public/images/Magnifier.svg";
 import NotFound from "../../public/images/NotFound.png";
@@ -43,9 +45,12 @@ const Body = () => {
             {projects.length > 0 ? (
                 <div className={Styles.body__projects}>
                     {projects.map((project, index) => (
-                        <div key={index} className={Styles.project__item}>
-                            <span>{project}</span>
-                        </div>
+                        <Link key={index} href={`/projects/${encodeURIComponent(project)}`}>
+                            <div className={Styles.project__item}>
+                                <Image src={Bullet} alt="Bullet Icon"/>
+                                {project}
+                            </div>
+                        </Link>
                     ))}
                 </div>
             ) : (

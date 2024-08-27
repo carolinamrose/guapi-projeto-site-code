@@ -19,7 +19,7 @@ const ProjectPage = () => {
 
     return (
         <div>
-            <div  className={estilos.container}>
+            <div className={estilos.container}>
                 <Sidebar
                 folderSrc={FolderPurple} 
                 plusSrc={PlusPurple}
