@@ -71,12 +71,10 @@ const AddSection = () => {
                         <Image src={Frame} alt="Frame Icon" />
                         <span type="button">Adicionar seção</span>
                     </div>
-                    {sections.length === 0 && (
-                        <div className={Styles.section__create}>
-                            <Image src={CurvyArrow2} alt="Seta Curva" />
-                            <span>Crie sua Primeira Sessão aqui</span>
-                        </div>
-                    )}
+                    <div className={Styles.section__create}>
+                        <Image src={CurvyArrow2} alt="Seta Curva" />
+                        <span>Crie sua Primeira Sessão aqui</span>
+                    </div>
                 </>
             )}
 
