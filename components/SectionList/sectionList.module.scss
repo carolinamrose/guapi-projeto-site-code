@@ -11,6 +11,11 @@
 
 .section__listcontainer {
     display: flex;
+    flex-direction: column;
+}
+
+.section__listop {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
@@ -61,7 +66,7 @@
 .section__addtask span {
     font-family: var(--font-primary);
     font-size: 14px;
-    color: #FFF;
+    color: #FFF
 }
 
 .section__content {
@@ -69,6 +74,7 @@
     padding: 10px;
     border-radius: 4px;
     box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.25);
+    list-style-type: none;
 
     font-family: var(--font-primary);
     font-size: 14px;
@@ -94,3 +100,5 @@
     gap: 5px;
     cursor: pointer;
 }
+
+
